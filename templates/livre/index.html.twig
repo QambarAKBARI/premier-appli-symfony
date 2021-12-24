@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LivreController!{% endblock %}
+
+{% block body %}
+<div class="card  border-primary mb-3" style="max-width: 30rem;padding:0.5em">
+    <h3 class="card-header">Liste des Livres</h3>
+
+    {% for livre in livres %}
+        <p class="">
+            Titre : <a href="{{ path('livre_show', {id : livre.id})}}">{{ livre.titre | upper }} </a> 
+        </p>
+        <p>
+            Date de sortie : {{ livre.dateParution | date('d-m-Y')}} 
+        </p>
+        <button type="button" class="btn btn-outline-danger">
+            <a href="{{ path('delete_livre', {id : livre.id})}}">Supprimer</a>
+        </button>
+        <button type="button" class="btn btn-outline-warning">
+            <a href="{{ path('livre_edit', {id : livre.id})}}">Editer</a>
+        </button>
+    {% endfor %} 
+</div>
+<button type="button" class="btn btn-outline-primary"><a class="nav-link" href="{{ path('livre_new')}}">Auteur un Livre</a></button>
+{% endblock %}

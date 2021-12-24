@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un Auteur !{% endblock %}
+
+{% block body %}
+
+    {% if editMode %}
+        <h1> Modifier un Auteur </h1>
+    {% else %}
+        <h1>Ajouter un Auteur</h1>
+    {% endif %}   
+
+
+    {{ form(formAjoutAuteur) }}
+
+{% endblock %}

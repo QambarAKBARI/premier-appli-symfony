@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AuteurController!{% endblock %}
+
+{% block body %}
+<div class="card border-primary mb-3" style="max-width: 30rem;padding:0.5em">
+    <h3 class="card-header">Liste des Auteurs</h3>
+
+    {% for auteur in auteurs %}
+        <p>
+            Nom et Prénom : <a href="{{ path('auteur_show', {id : auteur.id})}}">{{ auteur | upper }}</a>
+        </p>
+        <p>
+             Date de Naissance : {{auteur.dateNaissance | date('d-m-Y')}}
+        </p>
+        <button type="button" class="btn btn-outline-danger">
+            <a href="{{ path('delete_auteur', { id : auteur.id }) }}">Supprimer</a>
+        </button>
+        <button type="button" class="btn btn-outline-warning">
+            <a href="{{ path('auteur_edit', {id : auteur.id}) }}">Editer</a>
+        </button>
+    {% endfor %} 
+</div>
+<button type="button" class="btn btn-outline-primary"><a class="nav-link" href="{{ path('auteur_new')}}">Ajouter un Auteur</a></button>
+
+{% endblock %}

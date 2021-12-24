@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détaills d'un livre !{% endblock %}
+
+{% block body %}
+
+    <div class="card border-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Détaills d'un livre</div>
+        <div class="card-body">
+        <h4 class="card-title">{{ livre.titre }}</h4>
+        <p class="card-text"> 
+            Auteur : <a href="{{ path('auteur_show', {id : livre.auteur.id})}}">{{ livre.auteur }}</a>
+        </p>
+        <p>
+            Résumé : {{ livre.resume }}
+        </p>
+        <p>
+            Prix : {{ livre.prix }} €
+        </p>
+        <p>
+            Nombre de pages : {{ livre.nbPages }}
+        </p>
+        <p>
+            Date Parution : {{ livre.dateParution | date('d-m-Y') }}
+        </p>
+
+        </div>
+    </div>
+
+
+{% endblock %}
